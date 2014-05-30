@@ -1,0 +1,46 @@
+.qq-upload-list li{
+    float: left;
+    list-style-type: none;
+    text-align: center;
+}
+.qq-upload-list{
+    width: 350px;
+}
+#EAjaxUpload{
+    overflow: hidden;
+}
+
+.image-container{
+    width: 100px;
+    height: 100px;
+    border: 1px solid silver;
+    border-radius: 5px;
+    margin: 2px;
+    background-color: black;
+    position: relative;
+}
+.helper{
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+
+.image-container img{
+    vertical-align: middle;
+}
+
+.image-container:hover{
+    opacity: 0.8;
+}
+
+.remove-img{
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+    color: white;
+    font-size: 21px;
+}
+
+.remove-img:hover{
+    cursor: pointer;
+}

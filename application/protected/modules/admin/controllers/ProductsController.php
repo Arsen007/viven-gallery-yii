@@ -29,7 +29,7 @@ class ProductsController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view'),
+				'actions'=>array('index','view','ImageUpload','test'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -171,4 +171,36 @@ class ProductsController extends Controller
 			Yii::app()->end();
 		}
 	}
+
+    public function actionImageUpload()
+        {
+            $pathToOrigin = Yii::getPathOfAlias('webroot').'/images/uploads/products/origins/';
+            $pathToThumbs = Yii::getPathOfAlias('webroot').'/images/uploads/products/thumbs/';
+
+            Yii::import("ext.EAjaxUpload.qqFileUploader");
+            // $folder=Yii::app()->basePath.'/../images/';// folder for uploaded files
+            $folder =  Yii::getPathOfAlias('webroot').'/images/uploads/products/origins/';
+            //  $folder ='files/';
+            $allowedExtensions = array("jpg","png","pdf");//array("jpg","jpeg","gif","exe","mov" and etc...
+            $sizeLimit = 10 * 1024 * 1024;// maximum file size in bytes
+            $uploader = new qqFileUploader($allowedExtensions, $sizeLimit);
+            $result = $uploader->handleUpload($folder);
+
+            $fileSize=filesize($folder.$result['filename']);//GETTING FILE SIZE
+            $fileName=$result['filename'];//GETTING FILE NAME
+            $name = 'aa.jpg';
+                 $image = new EasyImage($pathToOrigin.$fileName);
+                 $image->resize(100, 100);
+                 $image->save($pathToThumbs.$fileName);
+            $result['thumb'] = Yii::app()->getBaseUrl(true).'/images/uploads/products/thumbs/'.$fileName;
+            $result=htmlspecialchars(json_encode($result), ENT_NOQUOTES);
+            echo $result;// it's array
+        }
+
+    public function actionTest(){
+
+
+//        echo Yii::app()->easyImage->thumbOf(Yii::getPathOfAlias('webroot').'/images/uploads/products/thumbs/thumb.jpg',
+//            array('crop' => array('width' => 100, 'height' => 100)));
+    }
 }
