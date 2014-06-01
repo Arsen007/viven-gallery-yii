@@ -26,7 +26,7 @@ $this->widget('bootstrap.widgets.TbNavbar',array(
                 array('label'=>'Dashboard', 'url'=>array('/admin/dashboard/index'), 'visible'=>!Yii::app()->user->isGuest),
                 array('label'=>'Product Manager', 'url'=>array('/admin/products/admin'), 'visible'=>!Yii::app()->user->isGuest),
                 array('label'=>'Attribute Manager', 'url'=>array('/admin/ProductAttributes/admin'), 'visible'=>!Yii::app()->user->isGuest),
-                array('label'=>'Page Manager', 'url'=>array('/admin/pages'), 'visible'=>!Yii::app()->user->isGuest),
+                array('label'=>'Page Manager', 'url'=>array('/admin/pages/admin'), 'visible'=>!Yii::app()->user->isGuest),
                 array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/admin/logout'), 'visible'=>!Yii::app()->user->isGuest),
             ),
         ),
