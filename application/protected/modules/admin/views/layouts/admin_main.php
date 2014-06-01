@@ -18,7 +18,7 @@
 
 $this->widget('bootstrap.widgets.TbNavbar',array(
     'brand' =>'Viven Gallery Admin',
-    'brandUrl' =>'index',
+    'brandUrl' =>$this->createAbsoluteUrl('dashboard/index'),
     'items'=>array(
         array(
             'class'=>'bootstrap.widgets.TbMenu',
