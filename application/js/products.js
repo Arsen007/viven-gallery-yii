@@ -18,7 +18,7 @@ setTimeout(function(){
            var existing_images = $('#Products_images').val().split("|");
            $.each(existing_images,function(index,element){
                if(element !== ''){
-                   $('.qq-upload-list').append('<li class=" qq-upload-success"><div class="image-container" origin-name="'+element+'" sys-name="1401487907.jpg"><span class="helper"></span><img src="http://viven-gallery-yii.dev/images/uploads/products/thumbs/'+element+'"><div class="remove-img">X</div></div></li>')
+                   $('.qq-upload-list').append('<li class=" qq-upload-success"><div class="image-container" origin-name="'+element+'" sys-name="'+element+'"><span class="helper"></span><img src="http://viven-gallery-yii.dev/images/uploads/products/thumbs/'+element+'"><div class="remove-img">X</div></div></li>')
                }
            })
        }
