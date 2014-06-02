@@ -56,3 +56,27 @@
 .product-actions-menu li{
     float: left;
 }
+
+.set-main-btn,.main-image{
+    position: absolute;
+    left: 0px;
+    top: 2px;
+    color: white;
+    width: 80px;
+    height: 15px;
+    margin-left: 7px;
+}
+.main-image{
+    background-image: url('../images/main-image.png');
+    background-size: 100%;
+}
+.set-main-btn{
+    background-size: 100%;
+
+    background-image: url('../images/set-as-main-image.png');
+    display: none;
+
+}
+.set-main-btn:hover{
+    cursor: pointer;
+}

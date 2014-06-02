@@ -43,11 +43,8 @@
 		<?php echo $form->error($model,'description'); ?>
 	</div>
 
-<!--	<div class="row">-->
-<!--		--><?php //echo $form->labelEx($model,'image'); ?>
-<!--		--><?php //echo $form->textField($model,'image',array('size'=>60,'maxlength'=>100)); ?>
-<!--		--><?php //echo $form->error($model,'image'); ?>
-<!--	</div>-->
+		<?php echo $form->hiddenField($model,'image'); ?>
+
     <div class="row">
     <? $this->widget('ext.EAjaxUpload.EAjaxUpload',
          array(
@@ -62,7 +59,7 @@
                                'onComplete'=>"js:function(id, fileName, responseJSON){
                                         $('.qq-upload-list li').each(function(index,element){
                                             if($(this).find('.qq-upload-file').text() == fileName){
-                                                 $(this).html('<div class=\"image-container\" origin-name=\"'+fileName+'\" sys-name=\"'+responseJSON['filename']+'\"><span class=\"helper\"></span><img src=\"'+responseJSON['thumb']+'\" /><div class=\"remove-img\">X</div></div>');
+                                                 $(this).html('<div class=\"image-container\" origin-name=\"'+fileName+'\" sys-name=\"'+responseJSON['filename']+'\"><span class=\"helper\"></span><img src=\"'+responseJSON['thumb']+'\" /><div class=\"remove-img\">X</div><div class=\"set-main-btn\"></div></div>');
                                                  var cur_images = $('#Products_images').val();
                                                  $('#Products_images').val(cur_images+'|'+responseJSON['filename']);
                                             }
