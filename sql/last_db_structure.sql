@@ -16,18 +16,6 @@ CREATE DATABASE /*!32312 IF NOT EXISTS*/`viven` /*!40100 DEFAULT CHARACTER SET u
 
 USE `viven`;
 
-/*Table structure for table `authors` */
-
-DROP TABLE IF EXISTS `authors`;
-
-CREATE TABLE `authors` (
-  `id` int(10) NOT NULL,
-  `first_name` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `last_name` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `age` int(10) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
 /*Table structure for table `pages` */
 
 DROP TABLE IF EXISTS `pages`;
@@ -50,7 +38,7 @@ CREATE TABLE `product_attributes` (
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `label` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Table structure for table `product_categories` */
 
@@ -80,14 +68,13 @@ CREATE TABLE `products` (
   `image` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `images` longtext COLLATE utf8_unicode_ci,
   `url_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `author` int(10) DEFAULT NULL,
   `state` int(10) DEFAULT NULL,
   `visible` tinyint(1) NOT NULL,
   `keywords` longtext COLLATE utf8_unicode_ci,
   PRIMARY KEY (`id`),
   KEY `category_id` (`category_id`),
   CONSTRAINT `products_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `product_categories` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Table structure for table `users` */
 
