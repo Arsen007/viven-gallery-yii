@@ -26,9 +26,7 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'category_id'); ?>
-		<?php echo $form->textField($model,'category_id'); ?>
-		<?php echo $form->error($model,'category_id'); ?>
+        <?php echo $form->dropDownList($model,'category_id', CHtml::listData($categories->findAll(array('order' => 'name')),'id','label'));?>
 	</div>
 
 	<div class="row">
@@ -107,11 +105,6 @@
 		<?php echo $form->error($model,'url_name'); ?>
 	</div>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'author'); ?>
-		<?php echo $form->textField($model,'author'); ?>
-		<?php echo $form->error($model,'author'); ?>
-	</div>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'state'); ?>
@@ -120,9 +113,7 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'visible'); ?>
-		<?php echo $form->textField($model,'visible'); ?>
-		<?php echo $form->error($model,'visible'); ?>
+        <?php echo $form->dropDownList($model, 'visible', array(1=>'Visible', 0=>'Hidden'));?>
 	</div>
 
 	<div class="row buttons">

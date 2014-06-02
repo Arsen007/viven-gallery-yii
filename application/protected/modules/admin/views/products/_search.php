@@ -52,11 +52,6 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'author'); ?>
-		<?php echo $form->textField($model,'author'); ?>
-	</div>
-
-	<div class="row">
 		<?php echo $form->label($model,'state'); ?>
 		<?php echo $form->textField($model,'state'); ?>
 	</div>

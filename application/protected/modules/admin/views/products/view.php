@@ -39,7 +39,6 @@ $this->widget('zii.widgets.CDetailView', array(
 		'image',
 		'images',
 		'url_name',
-		'author',
 		'state',
 		'visible',
 	),

@@ -38,9 +38,6 @@
 	<?php echo CHtml::encode($data->url_name); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('author')); ?>:</b>
-	<?php echo CHtml::encode($data->author); ?>
-	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('state')); ?>:</b>
 	<?php echo CHtml::encode($data->state); ?>
