@@ -65,6 +65,7 @@ class ProductsController extends Controller
 	{
 		$model=new Products;
 		$modelAttributes=new ProductAttributes;
+        $modelCategories=new ProductCategories;
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
@@ -83,7 +84,9 @@ class ProductsController extends Controller
 		}
 
 		$this->render('create',array(
-			'model'=>$model,'attributes' => $modelAttributes
+			'model'=>$model,
+            'attributes' => $modelAttributes,
+            'categories' => $modelCategories
 		));
 	}
 

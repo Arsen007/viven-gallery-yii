@@ -49,7 +49,7 @@
                'id'=>'EAjaxUpload',
                'config'=>array(
                                'action'=>$this->createUrl('products/ImageUpload'),
-                               'template'=>'<div class="qq-uploader"><div class="qq-upload-drop-area"><span>Drop files here to upload</span></div><div class="qq-upload-button">Upload a file</div><ul class="qq-upload-list"></ul></div>',
+                               'template'=>'<div class="qq-uploader"><div class="qq-upload-drop-area"><span>Drop files here to upload</span></div><div class="qq-upload-button">Upload images</div><ul class="qq-upload-list"></ul></div>',
                                'debug'=>false,
                                'allowedExtensions'=>array('jpg'),
                                'sizeLimit'=>10*1024*1024,// maximum file size in bytes
