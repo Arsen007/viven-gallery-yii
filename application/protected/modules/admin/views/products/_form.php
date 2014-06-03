@@ -26,7 +26,9 @@
 	</div>
 
 	<div class="row">
+        <?php echo $form->labelEx($model,'category_id'); ?>
         <?php echo $form->dropDownList($model,'category_id', CHtml::listData($categories->findAll(array('order' => 'name')),'id','label'));?>
+        <?php echo $form->error($model,'category_id'); ?>
 	</div>
 
 	<div class="row">

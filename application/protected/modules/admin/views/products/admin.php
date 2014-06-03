@@ -53,7 +53,10 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		'category_id',
 		'price',
 		'description',
-		'image',
+		array('name'=>'image',
+		                'type'=>'html',
+            'value' => 'CHtml::image(Yii::app()->baseUrl . "/images/uploads/products/thumbs/" . $data->image)'
+        ),
 		/*
 		'images',
 		'url_name',
