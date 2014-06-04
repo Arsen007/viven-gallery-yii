@@ -1222,3 +1222,39 @@ h3#respond {
     padding-top: 24px;
     text-align: left
 }
+
+.item{
+    width: 160px;
+    height: 192px;
+    float: left;
+    margin: 5px;
+    border: 1px solid silver;
+    border-radius: 7px;
+    overflow: hidden;
+    background: white;
+}
+.item img{
+    width: 160px;
+
+}
+.product-image-container{
+    width: 160px;
+    height: 160px;
+}
+.items{
+    overflow: hidden;
+}
+
+.span9 {
+    width: 100%;
+}
+
+.list-view .summary {
+    text-align: left;
+}
+
+.product-price{
+    font-size: 19px;
+    float: right;
+    color: rgb(240, 196, 59);
+}
