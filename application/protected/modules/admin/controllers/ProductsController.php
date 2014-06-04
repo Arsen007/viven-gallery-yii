@@ -212,7 +212,7 @@ class ProductsController extends Controller
             $fileName=$result['filename'];//GETTING FILE NAME
             $name = 'aa.jpg';
                  $image = new EasyImage($pathToOrigin.$fileName);
-                 $image->resize(100, 100);
+                 $image->resize(200, 200);
                  $image->save($pathToThumbs.$fileName);
             $result['thumb'] = Yii::app()->getBaseUrl(true).'/images/uploads/products/thumbs/'.$fileName;
             $result=htmlspecialchars(json_encode($result), ENT_NOQUOTES);
