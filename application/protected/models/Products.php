@@ -51,6 +51,8 @@ class Products extends CActiveRecord
 		);
 	}
 
+
+
 	/**
 	 * @return array relational rules.
 	 */
