@@ -1,11 +1,11 @@
 <div class="item">
-
+<a href="<?php echo Yii::app()->baseUrl.'/product/'.$data->id ?>">
     <div class="product-image-container"><?php echo CHtml::image(Yii::app()->baseUrl . "/images/uploads/products/thumbs/" . $data->image) ?></div>
     <span class="product-name"><?php echo CHtml::encode($data->name); ?></span>
    	<br />
 	<span class="product-price"><?php echo '$'.CHtml::encode($data->price); ?></span>
 	<br />
-
+</a>
 	<?php /*
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('url_name')); ?>:</b>
