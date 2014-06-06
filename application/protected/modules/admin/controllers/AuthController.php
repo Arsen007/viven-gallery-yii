@@ -34,7 +34,7 @@ class AuthController extends Controller
        public function actionLogout()
       	{
       		Yii::app()->user->logout();
-           $this->redirect(Yii::app()->createAbsoluteUrl('admin/login'));
+           $this->redirect(Yii::app()->createAbsoluteUrl('admin/auth/login'));
       	}
 
        public function actionDashboard(){
