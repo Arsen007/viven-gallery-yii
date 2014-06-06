@@ -7,7 +7,7 @@ class ProductsController extends Controller
 	 * using two-column layout. See 'protected/views/layouts/column2.php'.
 	 */
 	public $layout='//layouts/column2';
-
+    public $categories;
 	/**
 	 * @return array action filters
 	 */
@@ -27,7 +27,7 @@ class ProductsController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view'),
+				'actions'=>array('index','view','ViewProductsByCategory'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -55,72 +55,30 @@ class ProductsController extends Controller
 		));
 	}
 
-	/**
-	 * Creates a new model.
-	 * If creation is successful, the browser will be redirected to the 'view' page.
-	 */
-	public function actionCreate()
-	{
-		$model=new Products;
+    public function actionViewProductsByCategory()
+    {
+        $currentCategory = $_GET['category'];
+        $categories = new ProductCategories;
+        $currentCategoryObj = $categories->findAllByAttributes(array('name' => $currentCategory));
+        $currentCategoryId = null;
+        if(!empty($currentCategoryObj)){
+            foreach($currentCategoryObj as $category){
+                $currentCategoryId = $category->id;           }
+        }
+//            var_dump($category);die;
+        $dataProvider = new CActiveDataProvider('Products',array(
+            'criteria'=>array(
+                    'condition'=>'category_id='.$currentCategoryId,
+                ),
+        ));
+        $this->categories = $categories;
+        $this->render('category_index', array(
+            'dataProvider' => $dataProvider,
+            'categories' => $categories,
+            'currentCategory'=> $currentCategory
+        ));
+    }
 
-		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
-
-		if(isset($_POST['Products']))
-		{
-			$model->attributes=$_POST['Products'];
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
-		}
-
-		$this->render('create',array(
-			'model'=>$model,
-		));
-	}
-
-	/**
-	 * Updates a particular model.
-	 * If update is successful, the browser will be redirected to the 'view' page.
-	 * @param integer $id the ID of the model to be updated
-	 */
-	public function actionUpdate($id)
-	{
-		$model=$this->loadModel($id);
-
-		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
-
-		if(isset($_POST['Products']))
-		{
-			$model->attributes=$_POST['Products'];
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
-		}
-
-		$this->render('update',array(
-			'model'=>$model,
-		));
-	}
-
-	/**
-	 * Deletes a particular model.
-	 * If deletion is successful, the browser will be redirected to the 'admin' page.
-	 * @param integer $id the ID of the model to be deleted
-	 */
-	public function actionDelete($id)
-	{
-		if(Yii::app()->request->isPostRequest)
-		{
-			// we only allow deletion via POST request
-			$this->loadModel($id)->delete();
-
-			// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
-			if(!isset($_GET['ajax']))
-				$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
-		}
-		else
-			throw new CHttpException(400,'Invalid request. Please do not repeat this request again.');
-	}
 
 	/**
 	 * Lists all models.
@@ -128,23 +86,11 @@ class ProductsController extends Controller
 	public function actionIndex()
 	{
 		$dataProvider=new CActiveDataProvider('Products');
+        $categories=new ProductCategories;
+        $this->categories = $categories;
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
-		));
-	}
-
-	/**
-	 * Manages all models.
-	 */
-	public function actionAdmin()
-	{
-		$model=new Products('search');
-		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['Products']))
-			$model->attributes=$_GET['Products'];
-
-		$this->render('admin',array(
-			'model'=>$model,
+            'categories' => $categories
 		));
 	}
 

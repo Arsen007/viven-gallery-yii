@@ -73,42 +73,19 @@
 
                                             <div class=inside-widget>
                                                 <ul>
-                                                    <li class="cat-item cat-item-3"><a
-                                                            title="view all posts filed under aenean nummy"
-                                                            href="http://www.alixixi.com/wordpress_23793/?cat=3">aenean
-                                                            nummy</a>
-                                                    <li class="cat-item cat-item-6"><a
-                                                            title="view all posts filed under cum sociis bus"
-                                                            href="http://www.alixixi.com/wordpress_23793/?cat=6">cum
-                                                            sociis bus</a>
+                                                    <?php
+                                                    if (isset($this->categories)) {
+                                                        foreach ($this->categories->findAll() as $category) {
+                                                            ?>
+                                                            <li class="cat-item cat-item-1"><a
+                                                                    title="view all posts filed under praesent vestibu"
+                                                                    href="<?php echo $this->createAbsoluteUrl('category/'.$category->name.'.html') ?>"><?php echo $category->label ?></a>
+                                                            </li>
+                                                        <?php
+                                                        }
 
-                                                    <li class="cat-item cat-item-8"><a
-                                                            title="view all posts filed under fusce feugiat"
-                                                            href="http://www.alixixi.com/wordpress_23793/?cat=8">fusce
-                                                            feugiat</a>
-                                                    <li class="cat-item cat-item-5"><a
-                                                            title="view all posts filed under fusce suscipit"
-                                                            href="http://www.alixixi.com/wordpress_23793/?cat=5">fusce
-                                                            suscipit</a>
-
-                                                    <li class="cat-item cat-item-9"><a
-                                                            title="view all posts filed under morbi nunc odio"
-                                                            href="http://www.alixixi.com/wordpress_23793/?cat=9">morbi
-                                                            nunc
-                                                            odio</a>
-                                                    <li class="cat-item cat-item-7"><a
-                                                            title="view all posts filed under nulla dui"
-                                                            href="http://www.alixixi.com/wordpress_23793/?cat=7">nulla
-                                                            dui</a>
-                                                    <li class="cat-item cat-item-4"><a
-                                                            title="view all posts filed under phasellus porta"
-                                                            href="http://www.alixixi.com/wordpress_23793/?cat=4">phasellus
-                                                            porta</a>
-                                                    <li class="cat-item cat-item-1"><a
-                                                            title="view all posts filed under praesent vestibu"
-                                                            href="http://www.alixixi.com/wordpress_23793/?cat=1">praesent
-                                                            vestibu</a>
-                                                    </li>
+                                                    }
+                                                    ?>
                                                 </ul>
                                             </div>
                                         </div>
