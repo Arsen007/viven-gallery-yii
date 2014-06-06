@@ -18,7 +18,7 @@ class DashboardController extends Controller
 	{
 		return array(
             array('allow',  // allow all users to perform 'index' and 'view' actions
-                'actions'=>array('index','view','error'),
+                'actions'=>array('index'),
                 'users'=>array('*'),
             ),
             array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -37,6 +37,9 @@ class DashboardController extends Controller
 
 	public function actionIndex()
 	{
+        if(Yii::app()->user->isGuest){
+            $this->redirect(array('auth/login'));
+        }
 		$this->render('index');
 	}
 
