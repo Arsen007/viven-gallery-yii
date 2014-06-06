@@ -57,6 +57,7 @@ return array(
 			'urlFormat'=>'path',
 			'rules'=>array(
                 'product/<id:[a-zA-Z-]+>.html'=>'products/view',
+                'category/<category:[a-zA-Z-]+>.html'=>'products/ViewProductsByCategory',
 				'<controller:\w+>/<id:\d+>'=>'<controller>/view',
 				'<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
 				'<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
@@ -117,4 +118,5 @@ return array(
 		// this is used in contact page
 		'adminEmail'=>'webmaster@example.com',
 	),
+    'defaultController' => 'products',
 );
