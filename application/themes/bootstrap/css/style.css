@@ -160,7 +160,7 @@ ul {
 
 .column-center {
     float: left;
-    width: 66%;
+    width: 100%;
 }
 
 .indent-center {
@@ -206,18 +206,18 @@ h3 {
 }
 
 h1 {
-    padding-right: 0px;
-    padding-left: 0px;
-    font-size: 1em;
-    background: url(../images/logo.gif) no-repeat left top;
-    padding-bottom: 0px;
-    margin: 0px;
-    width: 223px;
-    cursor: pointer;
-    color: #ffffff;
-    text-indent: -10000em;
-    padding-top: 0px;
-    height: 47px
+    /*padding-right: 0px;*/
+    /*padding-left: 0px;*/
+    /*font-size: 1em;*/
+    /*background: url(../images/logo.gif) no-repeat left top;*/
+    /*padding-bottom: 0px;*/
+    /*margin: 0px;*/
+    /*width: 223px;*/
+    /*cursor: pointer;*/
+    /*color: #ffffff;*/
+    /*text-indent: -10000em;*/
+    /*padding-top: 0px;*/
+    /*height: 47px*/
 }
 
 h1:hover {
@@ -1246,7 +1246,8 @@ h3#respond {
 }
 
 .span9 {
-    width: 100%;
+    float: left;
+    width: 60%%;
 }
 
 .list-view .summary {
@@ -1257,4 +1258,8 @@ h3#respond {
     font-size: 19px;
     float: right;
     color: rgb(240, 196, 59);
+}
+
+#content{
+    height: 400px;
 }
