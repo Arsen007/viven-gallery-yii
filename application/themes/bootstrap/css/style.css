@@ -160,7 +160,7 @@ ul {
 
 .column-center {
     float: left;
-    width: 66%;
+    width: 100%;
 }
 
 .indent-center {
@@ -1246,7 +1246,8 @@ h3#respond {
 }
 
 .span9 {
-    width: 100%;
+    float: left;
+    width: 60%%;
 }
 
 .list-view .summary {
