@@ -1261,5 +1261,5 @@ h3#respond {
 }
 
 #content{
-    height: 400px;
+    min-height: 400px;
 }
