@@ -29,7 +29,7 @@ class ProductsController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view','ImageUpload','test'),
+				'actions'=>array('index','view','ImageUpload','test','uniquecheck'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -219,10 +219,32 @@ class ProductsController extends Controller
             echo $result;// it's array
         }
 
-    public function actionTest(){
+    public function actionUniquecheck() {
+        $res = 1;
+        $arr = array();
+        if (isset($_POST['id']) && $_POST['id'] != '') {
+            $arr = array(
+                'condition' => 'id!=:id',
+                'params' => array('id' => $_POST['id']),
+            );
+        }
+        if (isset($_POST['url_name']) && $_POST['url_name'] != '') {
+            $url_name = $_POST['url_name'];
+            $obj = Products::model()->findAllByAttributes(array('url_name' => $url_name), $arr);
+            if (empty($obj)) {
+                $res = 0;
+            }
+        }
+
+        echo ($res == 1) ? 'false' : 'true';
+
+    }
+
+    public function actionTest() {
 
 
 //        echo Yii::app()->easyImage->thumbOf(Yii::getPathOfAlias('webroot').'/images/uploads/products/thumbs/thumb.jpg',
 //            array('crop' => array('width' => 100, 'height' => 100)));
     }
+
 }
