@@ -303,7 +303,8 @@ h1:hover {
 }
 
 .bg-cont {
-    background: url(../images/bg-top2.jpg) #000000 no-repeat left top
+    background: url(../images/gallery-bg.jpg) #000000 no-repeat 0px 59px;
+    background-size: 100%;
 }
 
 .border-left {

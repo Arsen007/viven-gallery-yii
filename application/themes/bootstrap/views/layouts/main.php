@@ -45,9 +45,8 @@
                                     class=searching id=s name=s><input class=submit type=image
                                                                        src="images/search.gif" value=submit></form>
                         </div>
-                        <div class=logo>
-                            <h1>art.zone</h1></div>
-                        <div class=description>only best art wirks</div>
+<!--                        <div class=logo>-->
+<!--                            <h1>art.zone</h1></div>-->
                     </div>
                     <!--header end--><!--content -->
                     <div class=content>
