@@ -303,7 +303,8 @@ h1:hover {
 }
 
 .bg-cont {
-    background: url(../images/bg-top2.jpg) #000000 no-repeat left top
+    background: url(../images/gallery-bg.jpg) #000000 no-repeat 0px 59px;
+    background-size: 100%;
 }
 
 .border-left {
@@ -980,7 +981,9 @@ blockquote cite {
 }
 
 hr {
-    display: none
+    /*display: none*/
+    border-top: transparent;
+    border-bottom: 1px dashed;
 }
 
 a img {
@@ -1261,5 +1264,9 @@ h3#respond {
 }
 
 #content{
-    height: 400px;
+    min-height: 400px;
+}
+
+.product{
+    margin-top: 15px;
 }

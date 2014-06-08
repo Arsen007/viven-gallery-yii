@@ -3,6 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head profile=http://gmpg.org/xfn/11><title>art.zone</title>
     <meta http-equiv=content-type content="text/html; charset=utf-8">
+    <?php yii::app()->bootstrap->register(); ?>
     <link rel="stylesheet" type="text/css" href="<?php echo yii::app()->theme->baseurl; ?>/css/style.css"/>
     <style type="text/css">
         <!--
@@ -14,12 +15,6 @@
         }
         -->
     </style>
-</head>
-<head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-    <meta name="language" content="en"/>
-    <title><?php echo chtml::encode($this->pagetitle); ?></title>
-    <?php yii::app()->bootstrap->register(); ?>
 </head>
 <body>
 <div class=min-width>
@@ -50,9 +45,8 @@
                                     class=searching id=s name=s><input class=submit type=image
                                                                        src="images/search.gif" value=submit></form>
                         </div>
-                        <div class=logo>
-                            <h1>art.zone</h1></div>
-                        <div class=description>only best art wirks</div>
+<!--                        <div class=logo>-->
+<!--                            <h1>art.zone</h1></div>-->
                     </div>
                     <!--header end--><!--content -->
                     <div class=content>

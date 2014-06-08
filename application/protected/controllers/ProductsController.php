@@ -50,6 +50,7 @@ class ProductsController extends Controller
 	 */
 	public function actionView($id)
 	{
+        $this->layout = '//layouts/main';
 		$this->render('view',array(
 			'model'=>$this->loadModel($id),
 		));
