@@ -980,7 +980,9 @@ blockquote cite {
 }
 
 hr {
-    display: none
+    /*display: none*/
+    border-top: transparent;
+    border-bottom: 1px dashed;
 }
 
 a img {
@@ -1262,4 +1264,8 @@ h3#respond {
 
 #content{
     min-height: 400px;
+}
+
+.product{
+    margin-top: 15px;
 }
