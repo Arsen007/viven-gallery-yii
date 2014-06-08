@@ -70,6 +70,11 @@ $this->breadcrumbs=array(
         padding-left: 10px;
         padding-right: 12px;
     }
+    .attributes{
+        border-radius: 5px;
+        overflow: hidden;
+        width: 241px;
+    }
 
     .attributes table{
         font-size: 16px;
@@ -78,6 +83,9 @@ $this->breadcrumbs=array(
     .attributes table td{
         border-right: 1px solid;
         width: 130px;
+        padding-left: 15px;
+        height: 27px;
+        vertical-align: middle;
     }
 
     .attributes table tr:nth-child(even) {background: #CCC}
