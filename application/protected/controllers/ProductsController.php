@@ -29,7 +29,7 @@ class ProductsController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view','ViewProductsByCategory'),
+				'actions'=>array('index','view','ViewProductsByCategory', 'search'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -117,7 +117,7 @@ class ProductsController extends Controller
 	 * Performs the AJAX validation.
 	 * @param CModel the model to be validated
 	 */
-	protected function performAjaxValidation($model)
+	protected function performAjaxValidation($searchmodel)
 	{
 		if(isset($_POST['ajax']) && $_POST['ajax']==='products-form')
 		{
@@ -125,4 +125,27 @@ class ProductsController extends Controller
 			Yii::app()->end();
 		}
 	}
+        
+        public function actionSearch() {
+        if(!isset($_GET["search"]) || $_GET["search"]==''){
+            return false;
+        }
+        $text = strtolower($_GET["search"]);
+        $dataProvider = new CActiveDataProvider('Products',array(
+            'criteria'=>array(
+            'condition'=>"(LOWER(`name`) like '%". $text ."%') or (LOWER(`url_name`) like '%". $text ."%')",
+           
+        ),
+        ));
+        
+        $categories=new ProductCategories;
+        $this->categories = $categories;
+		$this->render('search',array(
+                    'search_text' => $text,
+			'dataProvider'=>$dataProvider,
+            'categories' => $categories
+		));
+        
+        
+}
 }

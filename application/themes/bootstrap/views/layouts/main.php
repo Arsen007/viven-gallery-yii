@@ -41,8 +41,8 @@
                         <div class=search>
                             <form id=searchform
                                   style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px"
-                                  action=http://www.alixixi.com/wordpress_23793 method=get><input
-                                    class=searching id=s name=s><input class=submit type=image
+                                  action="<?php echo Yii::app()->baseUrl.'/products/search'; ?>" method=get><input name ="search"
+                                    class=searching id="search" ><input class=submit type=image id="submit_search"
                                                                        src="images/search.gif" value=submit></form>
                         </div>
 <!--                        <div class=logo>-->
@@ -103,3 +103,10 @@
                 </div>
 </body>
 </html>
+<script>
+    $("#submit_search").click(function(e){
+        if($.trim($("#search").val())==''){
+            return false;
+        }
+    });
+</script>
