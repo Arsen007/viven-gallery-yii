@@ -8,6 +8,8 @@ class ProductsController extends Controller
 	 */
 	public $layout='//layouts/column2';
     public $categories;
+    public $currentCategory;
+    public $currentCategorylabel;
 	/**
 	 * @return array action filters
 	 */
@@ -58,13 +60,16 @@ class ProductsController extends Controller
 
     public function actionViewProductsByCategory()
     {
-        $currentCategory = $_GET['category'];
+        $this->currentCategory = $_GET['category'];
         $categories = new ProductCategories;
-        $currentCategoryObj = $categories->findAllByAttributes(array('name' => $currentCategory));
+        $currentCategoryObj = $categories->findAllByAttributes(array('name' => $this->currentCategory));
         $currentCategoryId = null;
         if(!empty($currentCategoryObj)){
             foreach($currentCategoryObj as $category){
-                $currentCategoryId = $category->id;           }
+                $currentCategoryId = $category->id;
+                $this->currentCategorylabel = $category->label;
+
+            }
         }
 //            var_dump($category);die;
         $dataProvider = new CActiveDataProvider('Products',array(
@@ -76,7 +81,7 @@ class ProductsController extends Controller
         $this->render('category_index', array(
             'dataProvider' => $dataProvider,
             'categories' => $categories,
-            'currentCategory'=> $currentCategory
+            'currentCategory'=> $this->currentCategory
         ));
     }
 

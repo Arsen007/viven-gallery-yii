@@ -1,5 +1,10 @@
 <?php /* @var $this Controller */ ?>
 <?php $this->beginContent('//layouts/main'); ?>
+<style>
+    .active{
+        background-color: rgb(71, 71, 71)!important;
+    }
+</style>
 <div class="row">
     <div class="span3">
         <div id="sidebar">
@@ -9,7 +14,7 @@
 
 
                         <div class=corner-bot-right>
-                            <h2>categories</h2>
+                            <h2>Categories</h2>
 
                             <div class=inside-widget>
                                 <ul>
@@ -17,7 +22,7 @@
                                     if (isset($this->categories)) {
                                         foreach ($this->categories->findAll() as $category) {
                                             ?>
-                                            <li class="cat-item cat-item-1"><a
+                                            <li class="cat-item cat-item-1<?php echo $this->currentCategory == $category->name?' active':'' ?>"><a
                                                     title="view all posts filed under praesent vestibu"
                                                     href="<?php echo $this->createAbsoluteUrl('category/'.$category->name.'.html') ?>"><?php echo $category->label ?></a>
                                             </li>

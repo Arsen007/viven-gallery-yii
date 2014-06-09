@@ -10,7 +10,7 @@ $this->menu=array(
 );
 ?>
 
-<h1>Products</h1>
+<h1><?php echo $this->currentCategorylabel ?></h1>
 
 <?php $this->widget('bootstrap.widgets.TbListView',array(
 	'dataProvider'=>$dataProvider,
