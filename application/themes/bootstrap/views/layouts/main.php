@@ -40,9 +40,8 @@
                         </div>
                         <div class=search>
                             <form id=searchform
-                                  style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px"
                                   action="<?php echo Yii::app()->baseUrl.'/products/search'; ?>"  method=get>
-                                <input name ="search" class="searching search-input"  id="search" >
+                                <input name ="search" placeholder="Search" class="searching search-input"  id="search" >
                                 <button type="submit" class="search-btn" style="background-image: url('<?php echo yii::app()->theme->baseurl; ?>/images/search.gif');" ></button>
                             </form>
                         </div>
@@ -95,9 +94,9 @@
                         <!--content end-->
                         <div id=footer>
                             <div class=foot>
-                                Copyright &copy; <?php echo date('Y'); ?> by My Company.<br/>
+                                Copyright &copy; <?php echo date('Y'); ?> by Vivien Art Gallery.<br/>
                                 All Rights Reserved.<br/>
-                                <?php echo Yii::powered(); ?>
+                                By Arsen
                             </div>
                         </div>
                         <!--footer--></div>

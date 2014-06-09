@@ -161,6 +161,7 @@ ul {
 .column-center {
     float: left;
     width: 100%;
+    min-height: 400px;
 }
 
 .indent-center {
@@ -247,7 +248,9 @@ h1:hover {
 .search-input{
     height: 19px;
     border-radius: 6px;
-    width: 250px
+    width: 230px;
+    padding-left: 5px;
+
 }
 .search-btn{
     background-size: 100%;
