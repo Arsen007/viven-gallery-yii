@@ -127,7 +127,7 @@ $this->breadcrumbs=array(
         </div>
         <?php endif ?>
         <hr>
-        <button class="btn btn-success">Buy now</button>
+        <a class="btn btn-success" href=" <?php echo $model->ebay_url ?>">Buy now</a>
     </div>
     <div style="clear: both"></div>
     <div class="tabs-container">

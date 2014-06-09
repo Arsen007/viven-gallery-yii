@@ -13,6 +13,7 @@
  * @property string $image
  * @property string $images
  * @property string $url_name
+ * @property string $ebay_url
  * @property integer $state
  * @property integer $visible
  * @property string $keywords
@@ -38,7 +39,7 @@ class Products extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('name, price, url_name, visible', 'required'),
+			array('name, price, url_name,ebay_url, visible', 'required'),
 			array('category_id, state, visible', 'numerical', 'integerOnly'=>true),
 			array('name', 'length', 'max'=>50),
 			array('price', 'length', 'max'=>10),
@@ -80,6 +81,7 @@ class Products extends CActiveRecord
 			'image' => 'Image',
 			'images' => 'Images',
 			'url_name' => 'Url Name',
+			'ebay_url' => 'Ebay Url',
 			'state' => 'State',
 			'visible' => 'Visible',
 			'keywords' => 'Keywords',
@@ -113,6 +115,7 @@ class Products extends CActiveRecord
 		$criteria->compare('image',$this->image,true);
 		$criteria->compare('images',$this->images,true);
 		$criteria->compare('url_name',$this->url_name,true);
+		$criteria->compare('ebay_url',$this->ebay_url,true);
 		$criteria->compare('state',$this->state);
 		$criteria->compare('visible',$this->visible);
 		$criteria->compare('keywords',$this->keywords,true);

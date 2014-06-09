@@ -107,6 +107,18 @@
 		<?php echo $form->error($model,'url_name'); ?>
 	</div>
 
+	<div class="row">
+		<?php echo $form->labelEx($model,'ebay_url'); ?>
+		<?php echo $form->textField($model,'ebay_url',array('size'=>60,'maxlength'=>255)); ?>
+		<?php echo $form->error($model,'ebay_url'); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->labelEx($model,'keywords'); ?>
+		<?php echo $form->textArea($model,'keywords',array('rows'=>6, 'cols'=>50)); ?>
+		<?php echo $form->error($model,'keywords'); ?>
+	</div>
+
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'state'); ?>
