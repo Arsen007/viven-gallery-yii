@@ -56,9 +56,9 @@ return array(
 		'urlManager'=>array(
 			'urlFormat'=>'path',
 			'rules'=>array(
-                'product/<id:[a-zA-Z-]+>.html'=>'products/view', // product view
-                'category/<category:[a-zA-Z-]+>.html'=>'products/ViewProductsByCategory', // category product view
-                '<page_name:[a-zA-Z-]+>.html'=>'pages/view', // page view
+                'product/<id:[a-zA-Z-0-9]+>.html'=>'products/view', // product view
+                'category/<category:[a-zA-Z-0-9]+>.html'=>'products/ViewProductsByCategory', // category product view
+                '<page_name:[a-zA-Z-0-9]+>.html'=>'pages/view', // page view
 				'<controller:\w+>/<id:\d+>'=>'<controller>/view',
 				'<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
 				'<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
