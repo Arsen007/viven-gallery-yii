@@ -41,9 +41,10 @@
                         <div class=search>
                             <form id=searchform
                                   style="padding-right: 0px; padding-left: 0px; padding-bottom: 0px; margin: 0px; padding-top: 0px"
-                                  action="<?php echo Yii::app()->baseUrl.'/products/search'; ?>" method=get><input name ="search"
-                                    class=searching id="search" ><input class=submit type=image id="submit_search"
-                                                                       src="images/search.gif" value=submit></form>
+                                  action="<?php echo Yii::app()->baseUrl.'/products/search'; ?>"  method=get>
+                                <input name ="search" class="searching search-input"  id="search" >
+                                <button type="submit" class="search-btn" style="background-image: url('<?php echo yii::app()->theme->baseurl; ?>/images/search.gif');" ></button>
+                            </form>
                         </div>
 <!--                        <div class=logo>-->
 <!--                            <h1>art.zone</h1></div>-->
@@ -103,10 +104,3 @@
                 </div>
 </body>
 </html>
-<script>
-    $("#submit_search").click(function(e){
-        if($.trim($("#search").val())==''){
-            return false;
-        }
-    });
-</script>
