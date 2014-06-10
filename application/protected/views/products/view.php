@@ -73,7 +73,7 @@ $this->breadcrumbs=array(
     .attributes{
         border-radius: 5px;
         overflow: hidden;
-        width: 241px;
+        width: 437px;
     }
 
     .attributes table{
@@ -116,7 +116,7 @@ $this->breadcrumbs=array(
         <?php if($model->custom_attributes): ?>
         <hr>
         <div class="attributes">
-            <table>
+            <table style="width: 100%">
             <?php  foreach(unserialize($model->custom_attributes) as $attr_name => $attr_value){ ?>
                 <tr>
                     <td><?php echo $attr_name ?></td>
