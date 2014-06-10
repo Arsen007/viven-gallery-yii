@@ -2,7 +2,10 @@
 $baseUrl = Yii::app()->baseUrl;
 $cs = Yii::app()->getClientScript();
 $cs->registerScriptFile($baseUrl.'/js/jsCarousel-2.0.0.js');
+$cs->registerScriptFile($baseUrl.'/js/jquery.fancybox.js');
+$cs->registerScriptFile($baseUrl.'/js/jquery.mousewheel-3.0.6.pack.js');
 $cs->registerCssFile($baseUrl.'/css/jsCarousel-2.0.0.css');
+$cs->registerCssFile($baseUrl.'/css/jquery.fancybox.css');
 
 $this->breadcrumbs=array(
 	'Products'=>array('index'),
@@ -111,7 +114,9 @@ $this->breadcrumbs=array(
             <div style="height: 100%;width: 100%">
                 <span class="allign-helper"></span>
 <!--            <img src="--><?php //echo Yii::app()->baseUrl.''.$model->image ?><!--">-->
+                <a class="fancybox"  href="<?php echo Yii::app()->getBaseUrl(true).'/images/uploads/products/origins/'.$model->image?>">
             <?php echo  CHtml::image(Yii::app()->getBaseUrl(true).'/images/uploads/products/thumbs/'.$model->image) ?>
+                </a>
             </div>
         </div>
         <div class="thumbs-container">
@@ -122,7 +127,9 @@ $this->breadcrumbs=array(
                     continue;
                 }  ?>
                 <div>
+                    <a class="fancybox" data-fancybox-group="gallery" href="<?php echo Yii::app()->getBaseUrl(true).'/images/uploads/products/origins/'.$image ?>">
                 <?php echo  CHtml::image(Yii::app()->getBaseUrl(true).'/images/uploads/products/thumbs/'.$image,'',array('width'=>'60','height'=>'60','class'=>'product-thumb')); ?>
+                    </a>
                 </div>
             <?php } ?>
 
@@ -169,7 +176,22 @@ $this->breadcrumbs=array(
 <script>
     $(function(){
         $('.thumbs-container').jsCarousel({ onthumbnailclick: function (src) {
-            alert(src);
+            return;
         }, autoscroll: false,scrollspeed:500, circular: true, masked: false, itemstodisplay: 3, orientation: 'h' });
+
+        $('.fancybox').fancybox({
+
+        				openEffect : 'elastic',
+        				openSpeed  : 150,
+
+        				closeEffect : 'elastic',
+        				closeSpeed  : 150,
+
+        				closeClick : true,
+
+        				helpers : {
+        					overlay : null
+        				}
+        });
     })
 </script>
