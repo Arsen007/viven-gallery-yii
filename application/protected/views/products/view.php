@@ -1,4 +1,9 @@
 <?php
+$baseUrl = Yii::app()->baseUrl;
+$cs = Yii::app()->getClientScript();
+$cs->registerScriptFile($baseUrl.'/js/jsCarousel-2.0.0.js');
+$cs->registerCssFile($baseUrl.'/css/jsCarousel-2.0.0.css');
+
 $this->breadcrumbs=array(
 	'Products'=>array('index'),
 	$model->name,
@@ -31,7 +36,7 @@ $this->breadcrumbs=array(
 
     .image-container{
         width: 300px;
-        height: 350px;
+        height: 385px;
         /*border: 1px solid #c0c0c0;*/
         /*background: #5f7a00;*/
         float: left;
@@ -96,6 +101,8 @@ $this->breadcrumbs=array(
         /*height: 100%;*/
         vertical-align: middle;
     }
+
+
 </style>
 
 <div class="product">
@@ -106,6 +113,19 @@ $this->breadcrumbs=array(
 <!--            <img src="--><?php //echo Yii::app()->baseUrl.''.$model->image ?><!--">-->
             <?php echo  CHtml::image(Yii::app()->getBaseUrl(true).'/images/uploads/products/thumbs/'.$model->image) ?>
             </div>
+        </div>
+        <div class="thumbs-container">
+            <?php
+            $images = explode('|',$model->images);
+            foreach($images as $image){
+                if($image ==''){
+                    continue;
+                }  ?>
+                <div>
+                <?php echo  CHtml::image(Yii::app()->getBaseUrl(true).'/images/uploads/products/thumbs/'.$image,'',array('width'=>'60','height'=>'60','class'=>'product-thumb')); ?>
+                </div>
+            <?php } ?>
+
         </div>
     </div>
     <div class="overview">
@@ -145,3 +165,11 @@ $this->breadcrumbs=array(
         </div>
     </div>
 </div>
+
+<script>
+    $(function(){
+        $('.thumbs-container').jsCarousel({ onthumbnailclick: function (src) {
+            alert(src);
+        }, autoscroll: false,scrollspeed:500, circular: true, masked: false, itemstodisplay: 3, orientation: 'h' });
+    })
+</script>
