@@ -130,6 +130,63 @@
         <?php echo $form->dropDownList($model, 'visible', array(1=>'Visible', 0=>'Hidden'));?>
 	</div>
 
+<div class="row">
+
+    <script>
+        $(function () {
+            function myFunc() {
+                alert("Opened!");
+            }
+            $('.fancybox').fancybox({
+                afterLoad:function(){
+                    $(document).off( "click", "#products-grid a.btn.btn-primary.btn-lg" );
+                }
+            });
+        })
+    </script>
+    <label> Related Products</label>
+
+    <div class="related-products-container" >
+        <div style="overflow-y: scroll;max-height: 200px;">
+        <table>
+            <thead>
+                <tr>
+                    <th></th>
+                    <th style="width: 67%"></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <?php
+            $related_ids_imploded = '';
+
+            foreach ($relatedProducts as $key=> $product) {
+                if($key == 0){
+                    $related_ids_imploded .= $product->id;
+                }else{
+                    $related_ids_imploded .= '|'.$product->id;
+                }
+                ?>
+                <tr>
+                    <td><?php echo $product->id ?></td>
+                    <td><?php echo $product->name ?></td>
+                    <td><?php echo CHtml::image(Yii::app()->baseUrl . "/images/uploads/products/thumbs/" . $product->image, '', array('width' => '60')) ?></td>
+                    <td>
+                        <button class="btn btn-danger related-remove">Remove</button>
+                    </td>
+                </tr>
+            <?php } ?>
+        </table>
+        </div>
+            <?php echo count($relatedProducts) == 0?'<p class="empty-related">No related items</p>':'<p class="empty-related" style="display: none">No related items</p>' ?>
+
+<!--        <button type="button" class="btn btn-primary btn-lg rel-products-toggle">Related Products</button>-->
+        <div style="clear: both"></div>
+        <a class="fancybox fancybox.ajax"  href="http://viven-gallery-yii.dev/admin/products/getProductListView"><button class="btn btn-primary btn-lg add-related-btn">Add related</button></a>
+    </div>
+</div>
+    <input name="Products[related]" id="related_products_input" type="hidden" value="<?php echo $related_ids_imploded; ?>">
+
 	<div class="row buttons">
         <input type="submit" value="<?php echo $model->isNewRecord ? 'Create' : 'Save'?>" class="btn btn-success">
 	</div>
@@ -185,6 +242,34 @@
                 $(this).remove();
             })
             return false;
+        })
+
+        function updateRelatedInput() {
+            var aa = '';
+            $('.related-products-container table tr').each(function (i, e) {
+                if(i == 0){
+                    aa += $(this).find('td:first').text()
+                }else
+                aa += '|' + $(this).find('td:first').text()
+            })
+            $('#related_products_input').val(aa);
+            if(aa == ''){
+                $('.empty-related').show();
+            }else{
+                $('.empty-related').hide();
+            }
+
+        }
+
+
+        $(function () {
+            $('.related-remove').live('click', function () {
+                $(this).parent().parent().hide('300', function () {
+                    $(this).remove();
+                    updateRelatedInput();
+                });
+                return false;
+            })
         })
      </script>
 </div><!-- form -->

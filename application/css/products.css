@@ -80,3 +80,27 @@
 .set-main-btn:hover{
     cursor: pointer;
 }
+
+.related-products-container tr{
+    border-bottom: 1px solid silver;
+}
+.related-products-container td{
+    padding: 5px;
+}
+
+.related-products-container{
+    width: 500px;
+    border: 1px solid #c0c0c0;
+    padding: 10px;
+}
+
+.empty-related{
+    text-align: center;
+    color: rgb(255, 113, 113);
+    font-size: 19px;
+}
+
+.add-related-btn{
+    float: right;
+    margin-top: 20px;
+}

@@ -33,7 +33,7 @@ class ProductsController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
+				'actions'=>array('create','update','getProductListView'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -100,6 +100,27 @@ class ProductsController extends Controller
 		$model=$this->loadModel($id);
         $modelAttributes=new ProductAttributes;
         $modelCategories=new ProductCategories;
+        $productsModel=new Products;
+        $ProductRelationsModel=new ProductRelations;
+        $productsModel=new Products;
+
+
+        $relatedProducts = array();
+        $realatedProductIds = $ProductRelationsModel->getRelations($id);
+
+        if (!empty($realatedProductIds)) {
+            $relatedFindCriteria = '';
+            foreach ($realatedProductIds as $productId) {
+                if ($relatedFindCriteria == '') {
+                    $relatedFindCriteria .= 'id=' . $productId['related_product_ids'];
+                } else {
+                    $relatedFindCriteria .= ' || id=' . $productId['related_product_ids'];
+                }
+            }
+
+            $relatedProducts = $productsModel->findAll($relatedFindCriteria);
+        }
+
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
@@ -113,6 +134,12 @@ class ProductsController extends Controller
                 $custom_attributes = array('custom_attributes'=>serialize(array()));
             }
 
+            if ($_POST['Products']['related'] == '') {
+                $relatedids = array();
+            } else {
+                $relatedids = explode('|', $_POST['Products']['related']);
+            }
+            $ProductRelationsModel->saveRelations($id,$relatedids);
             $attributes = array_merge($custom_attributes,$_POST['Products']);
 			$model->attributes=$attributes;
 			if($model->save())
@@ -123,8 +150,18 @@ class ProductsController extends Controller
 			'model'=>$model,
             'attributes' => $modelAttributes,
             'categories'=>$modelCategories,
+            'relatedProducts'=>$relatedProducts,
+            'productsModel'=>$productsModel,
 		));
 	}
+
+    function ActionGetProductListView(){
+        $productsModel=new Products('search');
+        $productsModel->unsetAttributes();  // clear any default values
+      		if(isset($_GET['Products']))
+                $productsModel->attributes=$_GET['Products'];
+        $this->renderPartial('related_list',array('model'=>$productsModel),false,true);
+    }
 
 	/**
 	 * Deletes a particular model.

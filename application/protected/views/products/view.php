@@ -170,6 +170,14 @@ $this->breadcrumbs=array(
           </div>
 
         </div>
+        <div class="related-items">
+            <?php $this->widget('bootstrap.widgets.TbListView',array(
+            	'dataProvider'=>$relatedProducts,
+                'template'=>"{items}", //this remove: Displaying #... of ... result
+            	'itemView'=>'_view',
+            )); ?>
+        </div>
+        <div style="clear: both"></div>
     </div>
 </div>
 

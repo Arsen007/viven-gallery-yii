@@ -52,9 +52,35 @@ class ProductsController extends Controller
 	 */
 	public function actionView($id)
 	{
+        $loadedProduct = $this->loadModel($id);
+        $productsModel = new Products;
+        $relationsModel = new ProductRelations;
+
+        $relatedIds = $relationsModel->getRelations($loadedProduct->id);
+        $relatedConditionStr = '';
+        foreach($relatedIds as $index => $value){
+            if($index == 0){
+                $relatedConditionStr .= 'id = '.$value['related_product_ids'];
+            }else{
+                $relatedConditionStr .= ' || id = '.$value['related_product_ids'];
+            }
+        }
+        $criteria = new CDbCriteria;
+        $criteria->addCondition($relatedConditionStr);
+        $criteria->limit = 5;
+        $criteria->order = 'RAND()';
+        $relatedProducts = $productsModel->findAll($criteria);
+
+
+        $dataProvider=new CActiveDataProvider('Products',array(
+            'criteria'=>$criteria
+        ));
+
+
         $this->layout = '//layouts/main';
 		$this->render('view',array(
-			'model'=>$this->loadModel($id),
+			'model'=>$loadedProduct,
+            'relatedProducts' => $dataProvider
 		));
 	}
 
