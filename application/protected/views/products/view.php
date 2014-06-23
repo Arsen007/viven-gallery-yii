@@ -62,6 +62,7 @@ $this->breadcrumbs=array(
     }
     .tab-content{
         overflow-x: hidden !important;
+        overflow-y: hidden !important;
     }
     .main-image-container{
         height: 300px;
