@@ -56,12 +56,13 @@ $this->breadcrumbs=array(
 
     .tabs-container{
         width: 750px;
-        height: 350px;
         /*background: #2b2f7a;*/
         margin: 10px;
 
     }
-
+    .tab-content{
+        overflow-x: hidden !important;
+    }
     .main-image-container{
         height: 300px;
         /*border: 1px solid;*/
@@ -74,7 +75,7 @@ $this->breadcrumbs=array(
         font-size: 17px;
         color: red;
         text-underline-position: 20px;
-        line-height: 27px;
+        line-height: 25px;
         padding-left: 10px;
         padding-right: 12px;
     }
@@ -104,6 +105,7 @@ $this->breadcrumbs=array(
         /*height: 100%;*/
         vertical-align: middle;
     }
+   
 
 
 </style>
