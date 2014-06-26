@@ -156,10 +156,14 @@ class ProductsController extends Controller
         if(!isset($_GET["search"]) || $_GET["search"]==''){
             return false;
         }
+        $ctg ='';
+        if($_GET["search_category"]){
+            $ctg = " and category_id=".$_GET["search_category"];
+        }
         $text = strtolower($_GET["search"]);
         $dataProvider = new CActiveDataProvider('Products',array(
             'criteria'=>array(
-            'condition'=>"(LOWER(`name`) like '%". $text ."%') or (LOWER(`url_name`) like '%". $text ."%')",
+            'condition'=>"((LOWER(`name`) like '%". $text ."%') or (LOWER(`url_name`) like '%". $text ."%'))".$ctg ,
            
         ),
         ));

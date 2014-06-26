@@ -41,8 +41,22 @@
                         <div class=search>
                             <form id=searchform
                                   action="<?php echo Yii::app()->baseUrl.'/products/search'; ?>"  method=get>
+                                
                                 <input name ="search" placeholder="Search" class="searching search-input"  id="search" >
-                                <button type="submit" class="search-btn" style="background-image: url('<?php echo yii::app()->theme->baseurl; ?>/images/search.gif');" ></button>
+                                    <select name = "search_category">
+                                     <option value ="0">All Categories</option> 
+ <?php
+                                    if (isset($this->categories)) {
+                                        foreach ($this->categories->findAll() as $category) {
+                                            ?>
+                                        <option value="<?php echo $category->id; ?>"class="cat-item cat-item-1<?php echo $this->currentCategory == $category->name?' active':'' ?>"><?php echo $category->label ?></option>
+                                        <?php
+                                        }
+
+                                    }
+                                    ?>
+                                    </select>
+                                    <button type="submit" class="search-btn" style="background-image: url('<?php echo yii::app()->theme->baseurl; ?>/images/search.gif');" ></button>
                             </form>
                         </div>
 <!--                        <div class=logo>-->
@@ -103,3 +117,13 @@
                 </div>
 </body>
 </html>
+<script>
+    $(document ).ready(function() {
+        $("#searchform button").click(function(e){
+            if($("#search").val()=== ''){
+                e.preventDefault();
+        }
+    });
+        
+    });
+</script>
