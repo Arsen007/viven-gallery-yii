@@ -110,7 +110,7 @@
                             <div class=foot>
                                 Copyright &copy; <?php echo date('Y'); ?> by Vivien Art Gallery.<br/>
                                 All Rights Reserved.<br/>
-                                By Arsen
+                                By Arsen Sargsyan
                             </div>
                         </div>
                         <!--footer--></div>

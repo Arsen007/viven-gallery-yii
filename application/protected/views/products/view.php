@@ -45,7 +45,7 @@ $this->breadcrumbs=array(
         float: left;
     }
     .overview{
-        width: 478px;
+        width: 668px;
         /*height: 350px;*/
         /*background: #FF6000;*/
         float: left;
@@ -55,7 +55,7 @@ $this->breadcrumbs=array(
     }
 
     .tabs-container{
-        width: 750px;
+        width: 969px;
         /*background: #2b2f7a;*/
         margin: 10px;
 
