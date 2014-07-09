@@ -245,21 +245,78 @@ h1:hover {
 }
 
 .search-input{
-    height: 19px;
-    border-radius: 6px;
     width: 230px;
     padding-left: 5px;
+    height: 26px;
+    margin-right: -7px;
+    margin-top: -20px;
+    border: solid 1px silver;
+}
+.search_category{
+    border-radius: 0px;
+    margin-top: -10px;
+}
+#shop-by-category{
+    float: left;
+    color: white;
+    font-size: 12px;
+    text-align: left;
+    padding: 1px;
+    border-top-right-radius: 3px;
+    border-top-left-radius: 3px;
+    -webkit-user-select: none; /* user-select -- это нестандартное свойство */
+    -moz-user-select: none;    /* поэтому нужны префиксы */
+    -ms-user-select: none;
+    -o-user-select: none; /* не поддерживается, просто на будущее */
+    margin-right: 4px;
+    margin-top: -9px;
 
 }
+#shop-by-category.opened{
+    background-color: white;
+    color: black;
+}
+.gh-shop-ei{
+    background: url(../images/spr15.png) no-repeat;
+    margin-left: 7px;
+}
+.gh-shop-ei-black{
+    background: url(../images/spr16.png) no-repeat;
+}
+#shop-by-category:hover{
+    cursor: pointer;
+}
+
+.search-by-category-content{
+    width: 453px;
+    height: 180px;
+    background-color: white;
+    position: absolute;
+    left: 504px;
+    top: 51px;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+    border-top-right-radius: 3px;
+    display: none;
+    padding-left: 20px;
+    padding-top: 20px;
+}
 .search-btn{
-    background-size: 100%;
-    background-color: transparent;
-    border: none;width: 23px;
-    height: 23px
+    margin-top: -20px;
+    margin-left: -4px;
+    border: 1px solid silver;
+    border-radius: 3px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    background-color: white;
+    height: 30px;
+    background-color: rgb(51, 51, 51);
+    color: white;
 }
 
 #header .search {
-    text-align: right
+    text-align: left;
+    padding-left: 40px;
 }
 
 .menu {

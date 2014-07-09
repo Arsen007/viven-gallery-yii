@@ -7,7 +7,11 @@ class PagesController extends Controller
 	 * using two-column layout. See 'protected/views/layouts/column2.php'.
 	 */
 	public $layout='//layouts/main';
-
+    public $categories;
+    public function __construct($id){
+        parent::__construct($id);
+        $this->categories=new ProductCategories;
+    }
 
 	/**
 	 * @return array action filters

@@ -13,6 +13,11 @@ class ProductsController extends Controller
 	/**
 	 * @return array action filters
 	 */
+    public function __construct($id){
+        parent::__construct($id);
+        $this->categories=new ProductCategories;
+    }
+
 	public function filters()
 	{
 		return array(
