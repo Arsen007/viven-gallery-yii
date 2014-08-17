@@ -30,8 +30,9 @@
                                     array(
 //                                        'class'=>'bootstrap.widgets.TbMenu',
                                         'items' => array(
-                                            array('label' => 'Home', 'url' => array('/home')),
+//                                            array('label' => 'Home', 'url' => array('/home')),
                                             array('label'=>'Products', 'url'=>array('/products')),
+                                            array('label'=>'News', 'url'=>array('/news')),
                                             array('label' => 'About', 'url' => array('/about-us.html')),
                                             array('label' => 'Contact', 'url' => array('/contact-us.html')),
                                         ),

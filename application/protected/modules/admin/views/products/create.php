@@ -7,6 +7,8 @@ $cs->registerScriptFile($baseUrl . '/js/products.js');
 $cs->registerScriptFile($baseUrl . '/js/jquery.validate.js');
 $cs->registerScriptFile($baseUrl . '/js/additional-methods.js');
 $cs->registerCssFile($baseUrl . '/css/products.css');
+$cs->registerCssFile($baseUrl.'/css/jquery.fancybox.css');
+$cs->registerScriptFile($baseUrl.'/js/jquery.fancybox.js');
 
 $this->breadcrumbs = array(
     'Products' => array('index'),
@@ -25,7 +27,8 @@ $this->menu = array(
 $this->renderPartial('_form', array(
     'model' => $model,
     'attributes' => $attributes,
-    'categories' => $categories
+    'categories' => $categories,
+    'relatedProducts' => array()
 ));
 ?>
 

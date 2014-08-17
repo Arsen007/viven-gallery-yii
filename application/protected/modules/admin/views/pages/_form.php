@@ -50,7 +50,15 @@
 <?php $this->endWidget(); ?>
 <script>
     $(document).ready(function () {
-        $('.content-editor').ckeditor();
+        $('.content-editor').ckeditor({
+            filebrowserBrowseUrl : '<?php echo Yii::app()->getBaseUrl(true) ?>/kcfinder-master/',
+            filebrowserImageBrowseUrl : '<?php echo Yii::app()->getBaseUrl(true) ?>/kcfinder-master/?type=Images',
+            filebrowserFlashBrowseUrl : '<?php echo Yii::app()->getBaseUrl(true) ?>/kcfinder-master/?type=Flash',
+            filebrowserUploadUrl : '<?php echo Yii::app()->getBaseUrl(true) ?>/kcfinder-master/core/connector/php/connector.php?command=QuickUpload&type=Files',
+            filebrowserImageUploadUrl : '<?php echo Yii::app()->getBaseUrl(true) ?>/kcfinder-master/core/connector/php/connector.php?command=QuickUpload&type=Images',
+            filebrowserFlashUploadUrl : '<?php echo Yii::app()->getBaseUrl(true) ?>/kcfinder-master/core/connector/php/connector.php?command=QuickUpload&type=Flash',
+            height:'500px'
+        });
     });
 </script>
 </div><!-- form -->
