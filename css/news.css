@@ -1,0 +1,15 @@
+.qq-upload-success{
+    list-style-type: none;
+}
+.image-container img{
+    float: left;
+}
+.remove-news-img{
+    clear: both;
+    float: left;
+    margin-top: 15px;
+}
+
+.qq-upload-button{
+    margin-top: 10px;
+}
