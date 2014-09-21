@@ -236,12 +236,13 @@ h1:hover {
 
 .search {
     padding-right: 21px;
-    padding-left: 0px;
     padding-bottom: 0px;
     overflow: hidden;
     padding-top: 19px;
     text-align: left;
     margin-top: 11px;
+    text-align: left;
+    padding-left: 23px;
 }
 
 .search-input{
@@ -259,7 +260,7 @@ h1:hover {
 #shop-by-category{
     float: left;
     color: white;
-    font-size: 12px;
+    font-size: 15px;
     text-align: left;
     padding: 1px;
     border-top-right-radius: 3px;
@@ -316,7 +317,7 @@ h1:hover {
 
 #header .search {
     text-align: left;
-    padding-left: 40px;
+    padding-left: 21px;
 }
 
 .menu {
@@ -337,25 +338,27 @@ h1:hover {
     padding-right: 0px;
     padding-left: 0px;
     font-size: 1.09em;
-    background: url(../images/bg-li.gif) no-repeat right 6px;
+    /*background: url(../images/bg-li.gif) no-repeat right 6px;*/
     float: left;
     padding-bottom: 0px;
     overflow: hidden;
     line-height: normal;
-    padding-top: 0px
+    padding-top: 0px;
+    margin-top: -6px;
 }
 
 .menu li a {
     padding-right: 32px;
     display: block;
-    padding-left: 24px;
+    /*padding-left: 24px;*/
     font-weight: normal;
     padding-bottom: 0px;
     text-transform: none;
     color: #fcffca;
     padding-top: 1px;
     font-family: tahoma, arial, helvetica, serif;
-    text-decoration: none
+    text-decoration: none;
+    font-size: 1.6em;
 }
 
 .menu li a:hover {
@@ -627,7 +630,7 @@ h1:hover {
 }
 
 .column-center ul li {
-    padding-left: 10px;
+    /*padding-left: 10px;*/
     font-weight: normal;
     background: url(../images/a2.gif) no-repeat 0px 8px;
     list-style-image: none;
@@ -1355,7 +1358,7 @@ h3#respond {
     font-size: 16px;
 }
 
-pagination ul > li > a:hover, .pagination ul > li > a:focus, .pagination ul > .active > a, .pagination ul > .active > span {
+.pagination ul > li > a:hover, .pagination ul > li > a:focus, .pagination ul > .active > a, .pagination ul > .active > span {
 background-color: #535353!important;
 }
 
@@ -1366,4 +1369,14 @@ background-color: #000000;
 }
 .pagination{
     text-align: center;
+}
+
+#categories a{
+    font-size: 1.61em;
+}
+
+.breadcrumbs
+{
+	font-weight: bold;
+    font-size: 1.6em;
 }

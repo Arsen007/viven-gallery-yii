@@ -1,7 +1,7 @@
 <div class="item">
 <a href="<?php echo Yii::app()->baseUrl.'/product/'.$data->url_name.'.html' ?>" title="<?php echo CHtml::encode($data->name);  ?>">
     <div class="product-image-container"><?php echo CHtml::image(Yii::app()->baseUrl . "/images/uploads/products/thumbs/" . $data->image) ?></div>
-    <span class="product-name"><?php echo (strlen(CHtml::encode($data->name)) > 20?substr(CHtml::encode($data->name),0,20).'..':CHtml::encode($data->name) ); ?></span>
+    <span class="product-name"><?php echo (strlen(CHtml::encode($data->name)) > 18?substr(CHtml::encode($data->name),0,18).'..':CHtml::encode($data->name) ); ?></span>
    	<br />
     <?php
     $cn=new CNumberFormatter('en');

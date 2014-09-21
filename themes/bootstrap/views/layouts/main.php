@@ -86,6 +86,7 @@
                             <?php if (isset($this->breadcrumbs)): ?>
                                 <?php $this->widget('zii.widgets.CBreadcrumbs', array(
                       			'links'=>$this->breadcrumbs,
+                      			'separator'=>'<span> / </span>',
                       		)); ?><!-- breadcrumbs -->
                             <?php endif ?>
 <!--                            <div class=side-bar-left>-->
