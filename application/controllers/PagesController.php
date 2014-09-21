@@ -56,8 +56,10 @@ class PagesController extends Controller
 	 */
 	public function actionView($page_name)
 	{
+        $pageModel = $this->loadModel($page_name);
+        $this->setPageTitle($pageModel->title.' - '.Yii::app()->name);
 		$this->render('view',array(
-			'model'=>$this->loadModel($page_name),
+			'model'=>$pageModel,
 		));
 	}
 

@@ -1,7 +1,7 @@
 <?php /* @var $this controller */ ?>
 <!doctype html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-<head profile=http://gmpg.org/xfn/11><title>art.zone</title>
+<head profile=http://gmpg.org/xfn/11><title><?php echo isset($this->pageTitle) ? $this->pageTitle : Yii::app()->name; ?></title>
     <meta http-equiv=content-type content="text/html; charset=utf-8">
     <?php yii::app()->bootstrap->register(); ?>
     <script src="<?php echo yii::app()->baseurl; ?>/js/common.js"></script>

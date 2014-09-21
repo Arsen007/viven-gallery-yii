@@ -81,7 +81,7 @@ class ProductsController extends Controller
             'criteria'=>$criteria
         ));
 
-
+        $this->setPageTitle($loadedProduct->name.' - '.Yii::app()->name);
         $this->layout = '//layouts/main';
 		$this->render('view',array(
 			'model'=>$loadedProduct,
@@ -102,7 +102,7 @@ class ProductsController extends Controller
 
             }
         }
-//            var_dump($category);die;
+        $this->setPageTitle($this->currentCategorylabel.' - '.Yii::app()->name);
         $dataProvider = new CActiveDataProvider('Products',array(
             'criteria'=>array(
                     'condition'=>'category_id='.$currentCategoryId,
