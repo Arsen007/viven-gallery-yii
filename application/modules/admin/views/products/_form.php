@@ -182,7 +182,7 @@
 
 <!--        <button type="button" class="btn btn-primary btn-lg rel-products-toggle">Related Products</button>-->
         <div style="clear: both"></div>
-        <a class="fancybox fancybox.ajax"  href="http://viven-gallery-yii.dev/admin/products/getProductListView"><button class="btn btn-primary btn-lg add-related-btn">Add related</button></a>
+        <a class="fancybox fancybox.ajax"  href="<?php echo Yii::app()->createAbsoluteUrl('admin/products/getProductListView'); ?>"><button class="btn btn-primary btn-lg add-related-btn">Add related</button></a>
     </div>
 </div>
     <input name="Products[related]" id="related_products_input" type="hidden" value="<?php echo $related_ids_imploded; ?>">

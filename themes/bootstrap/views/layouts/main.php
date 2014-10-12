@@ -62,7 +62,7 @@
                                 <div id="shop-by-category" class="closed">Shop by<br>category<span class="gh-shop-ei">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
                                     <input style="" name ="search" placeholder="Search" class="search-input"  id="search" >
                                     <select style="width: 140px" name = "search_category" class="search_category">
-                                     <option value ="0">All Categories</option> 
+                                     <option value ="0">All Categories</option>
  <?php
                                     if (isset($this->categories)) {
                                         foreach ($this->categories->findAll() as $category) {
@@ -144,6 +144,6 @@
                 e.preventDefault();
         }
     });
-        
+
     });
 </script>

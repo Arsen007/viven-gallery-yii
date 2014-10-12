@@ -25,7 +25,7 @@ $('.search-form form').submit(function(){
 	'id'=>'products-grid',
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
-    'ajaxUrl' => 'http://viven-gallery-yii.dev/admin/products/getProductListView',
+    'ajaxUrl' => Yii::app()->createAbsoluteUrl('admin/products/getProductListView'),
 	'columns'=>array(
 		'id',
 		'name',

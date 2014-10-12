@@ -21,7 +21,7 @@ return array(
 	'import'=>array(
 		'application.models.*',
 		'application.components.*',
-        'ext.easyimage.EasyImage'
+        'ext.EasyImage.EasyImage'
 	),
 
 	'modules'=>array(

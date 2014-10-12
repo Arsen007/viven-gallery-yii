@@ -21,10 +21,10 @@ setTimeout(function(){
            $.each(existing_images,function(index,element){
                if(element !== ''){
                    if(element === main_image){
-                       $('.qq-upload-list').append('<li class=" qq-upload-success"><div class="image-container" origin-name="'+element+'" sys-name="'+element+'"><span class="helper"></span><img src="http://viven-gallery-yii.dev/images/uploads/products/thumbs/'+element+'"><div class="remove-img">X</div><div class="main-image"></div></div></li>')
+                       $('.qq-upload-list').append('<li class=" qq-upload-success"><div class="image-container" origin-name="'+element+'" sys-name="'+element+'"><span class="helper"></span><img src="'+base_url+'/images/uploads/products/thumbs/'+element+'"><div class="remove-img">X</div><div class="main-image"></div></div></li>')
 
                    }else{
-                       $('.qq-upload-list').append('<li class=" qq-upload-success"><div class="image-container" origin-name="'+element+'" sys-name="'+element+'"><span class="helper"></span><img src="http://viven-gallery-yii.dev/images/uploads/products/thumbs/'+element+'"><div class="remove-img">X</div><div class="set-main-btn"></div></div></li>')
+                       $('.qq-upload-list').append('<li class=" qq-upload-success"><div class="image-container" origin-name="'+element+'" sys-name="'+element+'"><span class="helper"></span><img src="'+base_url+'/images/uploads/products/thumbs/'+element+'"><div class="remove-img">X</div><div class="set-main-btn"></div></div></li>')
                    }
                }
            })
