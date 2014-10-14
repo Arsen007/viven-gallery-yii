@@ -55,16 +55,8 @@
                                'debug'=>false,
                                'allowedExtensions'=>array('jpg'),
                                'sizeLimit'=>10*1024*1024,// maximum file size in bytes
-                               'minSizeLimit'=>0,// minimum file size in bytes
-                               'onComplete'=>"js:function(id, fileName, responseJSON){
-                                        $('.qq-upload-list li').each(function(index,element){
-                                            if($(this).find('.qq-upload-file').text() == fileName){
-                                                 $(this).html('<div class=\"image-container\" origin-name=\"'+fileName+'\" sys-name=\"'+responseJSON['filename']+'\"><span class=\"helper\"></span><img src=\"'+responseJSON['thumb']+'\" /><div class=\"remove-img\">X</div><div class=\"set-main-btn\"></div></div>');
-                                                 var cur_images = $('#Products_images').val();
-                                                 $('#Products_images').val(cur_images+'|'+responseJSON['filename']);
-                                            }
-                                        })
-                                    }",
+                               'minSizeLimit'=>1024,// minimum file size in bytes
+                               'onComplete'=>"js:function(id, fileName, responseJSON){ onComplete(id, fileName, responseJSON) }",
                                 'multiple' => true,
 
                                //'messages'=>array(
@@ -271,5 +263,13 @@
                 return false;
             })
         })
+
+        function onComplete(id, fileName, responseJSON) {
+            $('.qq-upload-list li').each(function (index, element) {
+                $(this).html('<div class=\"image-container\" origin-name=\"' + fileName + '\" sys-name=\"' + responseJSON['filename'] + '\"><span class=\"helper\"></span><img src=\"' + responseJSON['thumb'] + '\" /><div class=\"remove-img\">X</div><div class=\"set-main-btn\"></div></div>');
+                var cur_images = $('#Products_images').val();
+                $('#Products_images').val(cur_images + '|' + responseJSON['filename']);
+            })
+        }
      </script>
 </div><!-- form -->
