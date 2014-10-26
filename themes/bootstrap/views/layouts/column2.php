@@ -51,7 +51,7 @@
 //        ?>
         </div><!-- sidebar -->
     </div>
-    <div class="span6">
+    <div class="right-side">
         <div id="content">
             <?php echo $content; ?>
         </div><!-- content -->

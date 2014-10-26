@@ -61,7 +61,7 @@
                                   action="<?php echo Yii::app()->baseUrl.'/products/search'; ?>"  method=get>
                                 <div id="shop-by-category" class="closed">Shop by<br>category<span class="gh-shop-ei">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
                                     <input style="" name ="search" placeholder="Search" class="search-input"  id="search" >
-                                    <select style="width: 140px" name = "search_category" class="search_category">
+                                    <select style="width: 16%" name = "search_category" class="search_category">
                                      <option value ="0">All Categories</option>
  <?php
                                     if (isset($this->categories)) {
@@ -77,6 +77,8 @@
                                     <button type="submit" class="search-btn">Go</button>
                             </form>
                         </div>
+                        <div class="main-banner"></div>
+
 <!--                        <div class=logo>-->
 <!--                            <h1>art.zone</h1></div>-->
                     </div>

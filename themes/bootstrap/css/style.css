@@ -107,7 +107,7 @@ textarea {
     background: url(../images/bg-top.jpg) no-repeat left top;
     margin: 0px auto;
     overflow: hidden;
-    width: 1025px;
+    width: 70%;
     position: relative
 }
 
@@ -235,18 +235,16 @@ h1:hover {
 }
 
 .search {
-    padding-right: 21px;
     padding-bottom: 0px;
     overflow: hidden;
     padding-top: 19px;
     text-align: left;
     margin-top: 11px;
     text-align: left;
-    padding-left: 23px;
 }
 
 .search-input{
-    width: 230px;
+    width: 16%;
     padding-left: 5px;
     height: 26px;
     margin-right: -7px;
@@ -316,8 +314,6 @@ h1:hover {
 }
 
 #header .search {
-    text-align: left;
-    padding-left: 21px;
 }
 
 .menu {
@@ -380,8 +376,7 @@ h1:hover {
 }
 
 .bg-cont {
-    background: url(../images/gallery-bg.jpg) #000000 no-repeat 0px 59px;
-    background-size: 100%;
+    background-color: #000000 ;
 }
 
 .border-left {
@@ -1304,8 +1299,8 @@ h3#respond {
 }
 
 .item{
-    width: 160px;
-    height: 192px;
+    width: 218px;
+    height: 256px;
     float: left;
     margin: 10px;
     border: 1px solid silver;
@@ -1314,16 +1309,18 @@ h3#respond {
     background: white;
 }
 .item img{
-    height: 144px;
+    height: 200px;
 
 }
 .product-image-container{
-    width: 160px;
-    height: 160px;
+    width: 218px;
+    height: 222px;
     text-align: center;
 }
 .items{
     overflow: hidden;
+    width: 91%;
+    margin: 0 auto;
 }
 
 .span9 {
@@ -1345,8 +1342,7 @@ h3#respond {
 }
 
 #content{
-    min-height: 500px;
-    width: 785px;
+    width: 100%;
 }
 
 .product{
@@ -1380,4 +1376,18 @@ background-color: #000000;
 {
 	font-weight: bold;
     font-size: 1.5em;
+}
+
+.main-banner{
+    width: 100%;
+    height: 330px;
+    background-image: url("/themes/bootstrap/images/gallery-bg.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    float: left;
+}
+
+.right-side{
+    width: 80%;
+    margin-left: 18%;
 }
