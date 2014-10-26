@@ -66,10 +66,11 @@ $this->breadcrumbs=array(
     }
     .main-image-container{
         height: 300px;
+        text-align: center;
         /*border: 1px solid;*/
     }
     .main-image-container img{
-        width: 300px;
+        height: 300px;
     }
 
     #description{

@@ -1314,12 +1314,13 @@ h3#respond {
     background: white;
 }
 .item img{
-    width: 160px;
+    height: 144px;
 
 }
 .product-image-container{
     width: 160px;
     height: 160px;
+    text-align: center;
 }
 .items{
     overflow: hidden;
@@ -1327,7 +1328,7 @@ h3#respond {
 
 .span9 {
     float: left;
-    width: 60%%;
+    width: 60%;
 }
 
 .list-view .summary {
