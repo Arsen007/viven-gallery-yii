@@ -106,6 +106,7 @@ class ProductsController extends Controller
         $dataProvider = new CActiveDataProvider('Products',array(
             'criteria'=>array(
                     'condition'=>'category_id='.$currentCategoryId,
+                    'order'=>'id DESC'
                 ),
         ));
         $this->categories = $categories;
@@ -122,7 +123,11 @@ class ProductsController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('Products');
+		$dataProvider=new CActiveDataProvider('Products',array(
+            'criteria'=>array(
+                    'order'=>'id DESC',
+                ),
+        ));
         $categories=new ProductCategories;
         $this->categories = $categories;
 		$this->render('index',array(
