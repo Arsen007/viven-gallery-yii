@@ -265,11 +265,11 @@
         })
 
         function onComplete(id, fileName, responseJSON) {
-            $('.qq-upload-list li').each(function (index, element) {
-                $(this).html('<div class=\"image-container\" origin-name=\"' + fileName + '\" sys-name=\"' + responseJSON['filename'] + '\"><span class=\"helper\"></span><img src=\"' + responseJSON['thumb'] + '\" /><div class=\"remove-img\">X</div><div class=\"set-main-btn\"></div></div>');
-                var cur_images = $('#Products_images').val();
-                $('#Products_images').val(cur_images + '|' + responseJSON['filename']);
-            })
+                console.log(responseJSON);
+            $('.qq-upload-list .qq-upload-success:last').remove();
+            $('.qq-upload-list').append('<li><div class=\"image-container\" origin-name=\"' + fileName + '\" sys-name=\"' + responseJSON['filename'] + '\"><span class=\"helper\"></span><img src=\"' + responseJSON['thumb'] + '\" /><div class=\"remove-img\">X</div><div class=\"set-main-btn\"></div></div></li>');
+            var cur_images = $('#Products_images').val();
+            $('#Products_images').val(cur_images + '|' + responseJSON['filename']);
         }
      </script>
 </div><!-- form -->
