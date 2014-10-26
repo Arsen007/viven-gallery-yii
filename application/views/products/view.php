@@ -107,7 +107,7 @@ $this->breadcrumbs=array(
         /*height: 100%;*/
         vertical-align: middle;
     }
-   
+
 
 
 </style>
@@ -193,17 +193,22 @@ $this->breadcrumbs=array(
 
         $('.fancybox').fancybox({
 
-        				openEffect : 'elastic',
-        				openSpeed  : 150,
+            openEffect: 'elastic',
+            openSpeed: 150,
 
-        				closeEffect : 'elastic',
-        				closeSpeed  : 150,
+            closeEffect: 'elastic',
+            closeSpeed: 150,
 
-        				closeClick : true,
-
-        				helpers : {
-        					overlay : null
-        				}
-        });
+            closeClick: true,
+            fitToView: true,
+            helpers: {
+                overlay: {
+                    speedOut: 30,
+                    css: {
+                        'background-color': 'rgba(0, 0, 0, 0.88)'
+                    }
+                }
+            }
+    })
     })
 </script>
