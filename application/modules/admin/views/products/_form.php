@@ -27,8 +27,14 @@
 
 	<div class="row">
         <?php echo $form->labelEx($model,'category_id'); ?>
-        <?php echo $form->dropDownList($model,'category_id', CHtml::listData($categories->findAll(array('order' => 'name')),'id','label'));?>
+        <?php echo $form->dropDownList($model,'category_id', CHtml::listData($categories->findAll(array('order' => 'name')),'id','label'),array('prompt'=>'--no category--'));?>
         <?php echo $form->error($model,'category_id'); ?>
+	</div>
+
+	<div class="row">
+        <?php echo $form->labelEx($model,'subcategory_id'); ?>
+        <?php echo $form->dropDownList($model,'subcategory_id', CHtml::listData($subcategories,'id','label'),array('prompt'=>'--no subcategory--'));?>
+        <?php echo $form->error($model,'subcategory_id'); ?>
 	</div>
 
 	<div class="row">
@@ -271,5 +277,31 @@
             var cur_images = $('#Products_images').val();
             $('#Products_images').val(cur_images + '|' + responseJSON['filename']);
         }
+
+        $(function(){
+            $('#Products_category_id').change(function(){
+                $('#Products_subcategory_id').prop('disabled',true);
+                if(!$('#Products_subcategory_id').hasClass('loading')){
+                    $('#Products_subcategory_id').addClass('loading');
+                }
+                $.ajax({
+                    url:'<?php echo Yii::app()->createAbsoluteUrl('admin/products/GetSubCatByCat');?>',
+                    data:{category_id:$(this).val()},
+                    dataType:"json",
+                    cache: true,
+                    type:"post",
+                    success:function(data){
+                        $('#Products_subcategory_id').removeClass('loading');
+                        if(data.length > 0){
+                            $('#Products_subcategory_id').prop('disabled',false);
+                        }
+                        $('#Products_subcategory_id').html('<option value="">--no subcategory--</option>');
+                        $.each(data,function(index,value){
+                            $('#Products_subcategory_id').append('<option value="'+value.id+'">'+value.label+'</option>')
+                        })
+                    }
+                });
+            })
+        })
      </script>
 </div><!-- form -->

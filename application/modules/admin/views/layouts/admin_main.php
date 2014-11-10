@@ -25,11 +25,11 @@ $this->widget('bootstrap.widgets.TbNavbar',array(
         array(
             'class'=>'bootstrap.widgets.TbMenu',
             'items'=>array(
-                array('label'=>'Dashboard', 'url'=>array('/admin/dashboard/index'), 'visible'=>!Yii::app()->user->isGuest),
-                array('label'=>'Product Manager', 'url'=>array('/admin/products/admin'), 'visible'=>!Yii::app()->user->isGuest),
-                array('label'=>'Attribute Manager', 'url'=>array('/admin/ProductAttributes/admin'), 'visible'=>!Yii::app()->user->isGuest),
-                array('label'=>'Category Manager', 'url'=>array('/admin/ProductCategories/admin'), 'visible'=>!Yii::app()->user->isGuest),
-                array('label'=>'Page Manager', 'url'=>array('/admin/pages/admin'), 'visible'=>!Yii::app()->user->isGuest),
+                array('label'=>'Products', 'url'=>array('/admin/products/admin'), 'visible'=>!Yii::app()->user->isGuest),
+                array('label'=>'Attributes', 'url'=>array('/admin/ProductAttributes/admin'), 'visible'=>!Yii::app()->user->isGuest),
+                array('label'=>'Categories', 'url'=>array('/admin/ProductCategories/admin'), 'visible'=>!Yii::app()->user->isGuest),
+                array('label'=>'Subcategories', 'url'=>array('/admin/productSubcategories/admin'), 'visible'=>!Yii::app()->user->isGuest),
+                array('label'=>'Pages', 'url'=>array('/admin/pages/admin'), 'visible'=>!Yii::app()->user->isGuest),
                 array('label'=>'News Manager', 'url'=>array('/admin/news/admin'), 'visible'=>!Yii::app()->user->isGuest),
                 array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/admin/auth/logout'), 'visible'=>!Yii::app()->user->isGuest),
             ),

@@ -33,7 +33,7 @@ class ProductsController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update','getProductListView'),
+				'actions'=>array('create','update','getProductListView','GetSubCatByCat'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -86,7 +86,8 @@ class ProductsController extends Controller
 		$this->render('create',array(
 			'model'=>$model,
             'attributes' => $modelAttributes,
-            'categories' => $modelCategories
+            'subcategories' => array(),
+            'categories'=>$modelCategories,
 		));
 	}
 
@@ -100,10 +101,9 @@ class ProductsController extends Controller
 		$model=$this->loadModel($id);
         $modelAttributes=new ProductAttributes;
         $modelCategories=new ProductCategories;
-        $productsModel=new Products;
+        $modelSubcategories=new ProductSubcategories();
         $ProductRelationsModel=new ProductRelations;
         $productsModel=new Products;
-
 
         $relatedProducts = array();
         $realatedProductIds = $ProductRelationsModel->getRelations($id);
@@ -145,10 +145,15 @@ class ProductsController extends Controller
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}
-
+        $criteria = new CDbCriteria();
+        if($model->category_id){
+            $criteria->addCondition(array('category_id = '.$model->category_id));
+        }
+        $subcategories = $modelSubcategories->findAll($criteria);
 		$this->render('update',array(
 			'model'=>$model,
             'attributes' => $modelAttributes,
+            'subcategories' => $subcategories,
             'categories'=>$modelCategories,
             'relatedProducts'=>$relatedProducts,
             'productsModel'=>$productsModel,
@@ -282,6 +287,13 @@ class ProductsController extends Controller
 
 //        echo Yii::app()->easyImage->thumbOf(Yii::getPathOfAlias('webroot').'/images/uploads/products/thumbs/thumb.jpg',
 //            array('crop' => array('width' => 100, 'height' => 100)));
+    }
+
+    public function actionGetSubCatByCat(){
+        if($_POST['category_id']){
+            $subcat = ProductSubcategories::model()->findAll('category_id = '.$_POST['category_id']);
+            echo CJavaScript::jsonEncode($subcat);
+        }
     }
 
 }

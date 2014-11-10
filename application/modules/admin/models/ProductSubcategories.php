@@ -1,35 +1,28 @@
 <?php
 
 /**
- * This is the model class for table "products".
+ * This is the model class for table "product_subcategories".
  *
- * The followings are the available columns in table 'products':
+ * The followings are the available columns in table 'product_subcategories':
  * @property integer $id
- * @property string $name
  * @property integer $category_id
- * @property string $price
- * @property string $custom_attributes
+ * @property string $name
+ * @property string $label
  * @property string $description
  * @property string $image
- * @property string $images
- * @property string $url_name
- * @property string $ebay_url
- * @property integer $state
- * @property integer $visible
  * @property string $keywords
  *
  * The followings are the available model relations:
  * @property ProductCategories $category
  */
-class Products extends CActiveRecord
+class ProductSubcategories extends CActiveRecord
 {
-    public $subcategory_id;
 	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
 	{
-		return 'products';
+		return 'product_subcategories';
 	}
 
 	/**
@@ -40,17 +33,14 @@ class Products extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('name, price, url_name,ebay_url, visible, category_id', 'required'),
-			array('category_id, state, visible', 'numerical', 'integerOnly'=>true),
-			array('name', 'length', 'max'=>50),
-			array('price', 'length', 'max'=>10),
-			array('image', 'length', 'max'=>100),
-			array('url_name', 'length', 'max'=>255),
-			array('description, images, subcategory_id', 'safe'),
-			array('custom_attributes, images, keywords', 'safe'),
+			array('category_id, name, label', 'required'),
+			array('name', 'unique','message' => 'This name is already existing.'),
+			array('category_id', 'numerical', 'integerOnly'=>true),
+			array('name, label', 'length', 'max'=>255),
+			array('description, image, keywords', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, name, category_id, price, description, image, images, url_name, state, visible', 'safe', 'on'=>'search'),
+			array('id, category_id, name, label, description, image, keywords', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -73,19 +63,12 @@ class Products extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'name' => 'Name',
 			'category_id' => 'Category',
-			'price' => 'Price',
-			'custom_attributes' => 'Custom Attributes',
+			'name' => 'Name',
+			'label' => 'Label',
 			'description' => 'Description',
 			'image' => 'Image',
-			'images' => 'Images',
-			'url_name' => 'Url Name',
-			'ebay_url' => 'Ebay Url',
-			'state' => 'State',
-			'visible' => 'Visible',
 			'keywords' => 'Keywords',
-			'subcategory_id' => 'Subcategory',
 		);
 	}
 
@@ -108,17 +91,11 @@ class Products extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id);
-		$criteria->compare('name',$this->name,true);
 		$criteria->compare('category_id',$this->category_id);
-		$criteria->compare('price',$this->price,true);
-		$criteria->compare('custom_attributes',$this->custom_attributes,true);
+		$criteria->compare('name',$this->name,true);
+		$criteria->compare('label',$this->label,true);
 		$criteria->compare('description',$this->description,true);
 		$criteria->compare('image',$this->image,true);
-		$criteria->compare('images',$this->images,true);
-		$criteria->compare('url_name',$this->url_name,true);
-		$criteria->compare('ebay_url',$this->ebay_url,true);
-		$criteria->compare('state',$this->state);
-		$criteria->compare('visible',$this->visible);
 		$criteria->compare('keywords',$this->keywords,true);
 
 		return new CActiveDataProvider($this, array(
@@ -130,7 +107,7 @@ class Products extends CActiveRecord
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
 	 * @param string $className active record class name.
-	 * @return Products the static model class
+	 * @return ProductSubcategories the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{

@@ -11,7 +11,7 @@ $cs->registerCssFile($baseUrl.'/css/jquery.fancybox.css');
 $cs->registerScriptFile($baseUrl.'/js/jquery.fancybox.js');
 
 $this->breadcrumbs = array(
-    'Products' => array('index'),
+    'Products' => array('admin'),
     'Create',
 );
 
@@ -28,6 +28,7 @@ $this->renderPartial('_form', array(
     'model' => $model,
     'attributes' => $attributes,
     'categories' => $categories,
+    'subcategories' => $subcategories,
     'relatedProducts' => array()
 ));
 ?>

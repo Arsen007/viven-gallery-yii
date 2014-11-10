@@ -28,7 +28,7 @@ $('.search-form form').submit(function(){
 
 <h1>Manage Products</h1>
 <br>
-<?php echo CHtml::link('Add new Product',$this->createAbsoluteUrl('products/create'),array('class'=>'add-button')); ?>
+<?php echo CHtml::link('Add new Product',$this->createAbsoluteUrl('products/create'),array('class'=>'add-button btn btn-primary')); ?>
 
 <div class="search-form" style="display:none">
 <?php $this->renderPartial('_search',array(

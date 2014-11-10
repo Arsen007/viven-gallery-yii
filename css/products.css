@@ -104,3 +104,9 @@
     float: right;
     margin-top: 20px;
 }
+
+form .loading{
+    background-image: url('../images/ajax-load-fb.gif')!important;
+    background-repeat: no-repeat;
+    background-position: 167px 3px;
+}
