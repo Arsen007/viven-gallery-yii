@@ -33,7 +33,7 @@ class ProductSubcategories extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('category_id, name, label', 'required'),
+			array('category_id, name, label, url_name', 'required'),
 			array('name', 'unique','message' => 'This name is already existing.'),
 			array('category_id', 'numerical', 'integerOnly'=>true),
 			array('name, label', 'length', 'max'=>255),

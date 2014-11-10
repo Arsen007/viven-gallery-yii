@@ -9,6 +9,7 @@
     <?php echo $form->error($model,'category_id'); ?>
 
 <?php echo $form->textFieldRow($model,'name',array('class'=>'span5','maxlength'=>255)); ?>
+<?php echo $form->textFieldRow($model,'url_name',array('class'=>'span5','maxlength'=>255)); ?>
 
 	<?php echo $form->textFieldRow($model,'label',array('class'=>'span5','maxlength'=>255)); ?>
 
